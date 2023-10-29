@@ -12,7 +12,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/patient?patientId=Patient1",
+					"raw": "http://localhost:8080/api/patient?patientId=Patient5",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -25,7 +25,7 @@
 					"query": [
 						{
 							"key": "patientId",
-							"value": "Patient1"
+							"value": "Patient5"
 						}
 					]
 				}
@@ -39,7 +39,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n    \"patientId\" : \"Patient1\",\r\n    \"patientName\" : \"Adil\",\r\n    \"patientGender\" : \"Male\",\r\n    \"patientAge\" : \"20\",\r\n    \"patientAddress\" : \"Kaikaluru\",\r\n    \"patientIllness\" : \"Fever\"\r\n}",
+					"raw": " {\r\n    \"patientId\" : \"\",\r\n    \"patientName\" : \"ccd\",\r\n    \"patientGender\" : \"Male\",\r\n    \"patientAge\" : \"20\",\r\n    \"patientAddress\" : \"Kaikaluru\",\r\n    \"patientIllness\" : \"Fever\",\r\n    \"admitDate\" : \"22-10-23\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -68,7 +68,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/patient?patientId=Patient1",
+					"raw": "http://localhost:8080/api/patient/discharge?pId=Patient10&dischargeDate=25-10-23",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -76,12 +76,17 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"patient"
+						"patient",
+						"discharge"
 					],
 					"query": [
 						{
-							"key": "patientId",
-							"value": "Patient1"
+							"key": "pId",
+							"value": "Patient10"
+						},
+						{
+							"key": "dischargeDate",
+							"value": "25-10-23"
 						}
 					]
 				}
@@ -95,7 +100,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"docId\" : \"Doctor1\",\r\n    \"docName\" : \"Ravi\",\r\n    \"docDegree\" : \"MBBS\",\r\n    \"docGender\" : \"Male\"\r\n}",
+					"raw": "{\r\n    \"docId\" : \"\",\r\n    \"docName\" : \"STU\",\r\n    \"docDegree\" : \"MBBS\",\r\n    \"docGender\" : \"Male\",\r\n    \"docFee\" : 1000000\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -124,7 +129,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/doctor?docId=Doctor1",
+					"raw": "http://localhost:8080/api/doctor?docId=Doctor2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -137,7 +142,7 @@
 					"query": [
 						{
 							"key": "docId",
-							"value": "Doctor1"
+							"value": "Doctor2"
 						}
 					]
 				}
@@ -151,7 +156,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"docId\" : \"Doctor1\",\r\n    \"docName\" : \"Rahul\",\r\n    \"docDegree\" : \"Dentist\",\r\n    \"docGender\" : \"Male\"\r\n}",
+					"raw": "{\r\n    \"docId\" : \"Doctor1\",\r\n    \"docName\" : \"XYZ\",\r\n    \"docDegree\" : \"Dentist\",\r\n    \"docGender\" : \"Male\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -173,6 +178,77 @@
 						{
 							"key": "docId",
 							"value": "Doctor1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Patient's Doctor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/patient/getpatientsdoctor/Patient10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"patient",
+						"getpatientsdoctor",
+						"Patient10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Patients Handled By Doctor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/doctor/getallpatients/Doctor7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"doctor",
+						"getallpatients",
+						"Doctor7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Patient By Bed Number",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/hospital/getpatient?bedNumber=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hospital",
+						"getpatient"
+					],
+					"query": [
+						{
+							"key": "bedNumber",
+							"value": "10"
 						}
 					]
 				}

@@ -50,6 +50,8 @@ public class PatientService {
          int totalBill = diff*(docBill+bedBill);
          Bill billObj = new Bill(docBill,bedBill,totalBill);
          patientRepo.dischargePatientById(pId);
+         doctorRepository.removeParticularPatientForParticularDoctor(docObj.getDocId(),pId);
+         hospitalService.deAllocateBed(pId);
          return billObj;
     }
 

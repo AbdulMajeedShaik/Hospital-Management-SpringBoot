@@ -56,4 +56,9 @@ public class DoctorService {
         }
         return obj;
     }
+
+    public void removeParticularPatientForParticularDoctor(String docId,String pId){
+       doctorRepository.removeParticularPatientForParticularDoctor(docId,pId);
+    }
+
 }

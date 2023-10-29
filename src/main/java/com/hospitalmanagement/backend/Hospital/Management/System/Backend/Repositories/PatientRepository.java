@@ -34,6 +34,7 @@ public class PatientRepository {
     }
 
     public void dischargePatientById(String patientId){
+        patientVsDoctor.remove(patientId);
         patientDataBase.remove(patientId);
     }
 
@@ -44,6 +45,7 @@ public class PatientRepository {
     public int getOverAllPatients(){
         return this.overAllPatients;
     }
+
 
 
 }

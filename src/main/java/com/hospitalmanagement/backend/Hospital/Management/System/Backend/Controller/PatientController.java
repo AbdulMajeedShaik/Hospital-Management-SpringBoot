@@ -1,5 +1,6 @@
 package com.hospitalmanagement.backend.Hospital.Management.System.Backend.Controller;
 
+import com.hospitalmanagement.backend.Hospital.Management.System.Backend.Models.Bill;
 import com.hospitalmanagement.backend.Hospital.Management.System.Backend.Models.Doctor;
 import com.hospitalmanagement.backend.Hospital.Management.System.Backend.Models.Patient;
 import com.hospitalmanagement.backend.Hospital.Management.System.Backend.Services.PatientService;
@@ -23,14 +24,15 @@ public class PatientController {
        return "Patient got added successfully into database";
     }
 
-    @DeleteMapping("/api/patient")
-    public String dischargePatientById(@RequestParam String patientId){
-       patientService.dischargePatientById(patientId);
-       return "Patient got deleted successfully from database";
-    }
+
 
     @GetMapping("/api/patient/getpatientsdoctor/{pId}")
     public Doctor getPatientsDoctor(@PathVariable String pId){
         return patientService.getPatientsDoctor(pId);
+    }
+
+    @DeleteMapping("/api/patient/discharge")
+    public Bill dischargePatientById(@RequestParam String pId,@RequestParam String dischargeDate){
+        return patientService.dischargePatientById(pId,dischargeDate);
     }
 }

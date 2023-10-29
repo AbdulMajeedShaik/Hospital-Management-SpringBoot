@@ -26,4 +26,7 @@ public class HospitalService {
     public void assignPatientByBedNumber(int bedNumber, Patient obj) {
         hospitalRepository.assignPatientByBedNumber(bedNumber,obj);
     }
+    public int getBedFee(){
+        return hospitalRepository.getBedFee();
+    }
 }

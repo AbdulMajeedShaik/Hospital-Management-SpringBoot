@@ -51,4 +51,14 @@ public class DoctorRepository {
     public void updateDocDetailsByDocId(String docId,Doctor obj){
         this.docDataBase.put(docId,obj);
     }
+    public void removeParticularPatientForParticularDoctor(String docId,String pId){
+        ArrayList<Patient> allPatientsHandledByDoctor = docVsPatient.get(docId);
+        for(int i=0;i<allPatientsHandledByDoctor.size();i++){
+            Patient obj = allPatientsHandledByDoctor.get(i);
+            if(obj.getPatientId().equals(pId)){
+                allPatientsHandledByDoctor.remove(i);
+                break;
+            }
+        }
+    }
 }
